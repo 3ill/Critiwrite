@@ -8,8 +8,6 @@ import Form from './pages/Form';
 import Privacy from './components/Privacy';
 import { logo } from './assets';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { navVariants } from './utils/motion';
 
 function App() {
   const [name, setName] = useState('');
@@ -34,15 +32,15 @@ function App() {
       </div>
 
       <div className="max-w-[100%] min-h-[100vh] px-4 md:px-16 text-[#000000]">
-        <motion.nav variants={navVariants} initial="hidden" whileInView="show">
+        <nav>
           <Link to="/">
             <img
               src={logo}
               alt="logo"
-              className="w-[150px] h-[140px] lg:h-[130px]  lg:w-[180px]"
+              className="w-[150px] h-[140px] lg:h-[130px]  lg:w-[180px] animate-slide-down"
             />
           </Link>
-        </motion.nav>
+        </nav>
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route
