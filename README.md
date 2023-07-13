@@ -1,4 +1,4 @@
-<p align="center"><a href="/" target="_blank"><img src="https://github.com/eclatdevteam/eclatwebapp_frontend/blob/main/src/assets/Eclat.png" width="500"></a></p>
+<p align="center"><a href="/" target="_blank"><img src="https://github.com/eclatdevteam/eclatwebapp_frontend/blob/main/src/assets/Eclat.png" width="400"></a></p>
 
 # Welcome to Critiwrite Repo
 
