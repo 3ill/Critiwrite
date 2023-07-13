@@ -10,11 +10,12 @@ import {
   typing7,
 } from '../assets';
 import { Link } from 'react-router-dom';
-import { TypingText } from './CustomTexts';
-import { motion } from 'framer-motion';
+import Typingeffect from './Typing';
+import { motion, useReducedMotion } from 'framer-motion';
 import { staggerContainer, textVariant, fadeIn } from '../utils/motion';
 
 const Hero = () => {
+  const shouldReduceMotion = useReducedMotion();
   const [currentImage, setCurrentImage] = useState(0);
   const images = [typing, typing2, typing3, typing5, typing6, typing7];
 
@@ -30,7 +31,7 @@ const Hero = () => {
     slideShow,
     headerWrapper,
     header1Styles,
-    header3Styles,
+
     buttonStyle,
     buttonTextStyle,
   } = heroStyles;
@@ -43,6 +44,7 @@ const Hero = () => {
           variants={staggerContainer}
           initial="hidden"
           whileInView="show"
+          reduceMotion={!shouldReduceMotion}
           viewport={{ once: false, amount: 0.25 }}
           className="max-sm:hidden"
         >
@@ -59,10 +61,12 @@ const Hero = () => {
             variants={staggerContainer}
             initial="hidden"
             whileInView="show"
+            reduceMotion={!shouldReduceMotion}
             viewport={{ once: false, amount: 0.25 }}
           >
             <motion.img
               variants={fadeIn('right', 'tween', 0.3, 1)}
+              reduceMotion={!shouldReduceMotion}
               src={asset1}
               alt="mobile_hero"
               className="lg:hidden md:hidden max-sm:w-[395px] max-sm:h-[400px] max-sm:mt-[175px] max-sm:ml-5 z-10"
@@ -78,6 +82,7 @@ const Hero = () => {
           initial="hidden"
           whileInView="show"
           viewport={{ once: false, amount: 0.25 }}
+          reduceMotion={!shouldReduceMotion}
           className={headerWrapper}
         >
           <motion.h1 variants={textVariant(1.1)} className={header1Styles}>
@@ -86,10 +91,7 @@ const Hero = () => {
             <span className="font-inter"> Potential</span>
           </motion.h1>
 
-          <TypingText
-            title="Achieve your dream score"
-            textStyles={header3Styles}
-          />
+          <Typingeffect text="Achieve your dream score" delay={100} />
 
           {/**get started button */}
           <Link to="/form">
