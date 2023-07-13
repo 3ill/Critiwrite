@@ -22,7 +22,7 @@ const Typingeffect = ({ text, delay }) => {
 
 const styles = {
   header3Styles:
-    'text-[24px] font-work mr-[20px] md:mr-[-20px] md:text-[30px]  font-inter font-semibold text-[black] mt-[10px] lg:text-[55px] max-sm:text-[26px]',
+    'text-[24px] font-work mr-[20px] md:mr-[-20px] md:text-[30px]  font-inter font-semibold gradient-text mt-[10px] lg:text-[55px] max-sm:text-[26px]',
 };
 
 export default Typingeffect;
