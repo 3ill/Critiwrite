@@ -11,11 +11,8 @@ import {
 } from '../assets';
 import { Link } from 'react-router-dom';
 import Typingeffect from './Typing';
-import { motion, useReducedMotion } from 'framer-motion';
-import { staggerContainer, textVariant, fadeIn } from '../utils/motion';
 
 const Hero = () => {
-  const shouldReduceMotion = useReducedMotion();
   const [currentImage, setCurrentImage] = useState(0);
   const images = [typing, typing2, typing3, typing5, typing6, typing7];
 
@@ -40,56 +37,33 @@ const Hero = () => {
     <section className="max-w-full overflow-hidden">
       {/**hero images and slideshow */}
       <section className="relative">
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="show"
-          reduceMotion={!shouldReduceMotion}
-          viewport={{ once: false, amount: 0.25 }}
-          className="max-sm:hidden"
-        >
-          <motion.img
-            variants={fadeIn('right', 'tween', 0.3, 1)}
+        <div className="max-sm:hidden">
+          <img
             src={images[currentImage]}
             alt="hero_bg"
             className={`${slideShow} lg:blur-none md:blur-sm z-10 md:rounded-[25px]`}
           />
-        </motion.div>
+        </div>
 
         <div className="relative">
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="show"
-            reduceMotion={!shouldReduceMotion}
-            viewport={{ once: false, amount: 0.25 }}
-          >
-            <motion.img
-              variants={fadeIn('right', 'tween', 0.3, 1)}
-              reduceMotion={!shouldReduceMotion}
+          <div>
+            <img
               src={asset1}
               alt="mobile_hero"
               className="lg:hidden md:hidden max-sm:w-[395px] max-sm:h-[400px] max-sm:mt-[175px] max-sm:ml-5 z-10"
             />
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/**Hero text & Headers */}
       <section>
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: false, amount: 0.25 }}
-          reduceMotion={!shouldReduceMotion}
-          className={headerWrapper}
-        >
-          <motion.h1 variants={textVariant(1.1)} className={header1Styles}>
+        <div className={headerWrapper}>
+          <h1 className={`${header1Styles} animate-slide-down`}>
             Unlock your
             <br className="md:hidden" /> Writing
             <span className="font-inter"> Potential</span>
-          </motion.h1>
+          </h1>
 
           <Typingeffect text="Achieve your dream score" delay={100} />
 
@@ -99,7 +73,7 @@ const Hero = () => {
               <p className={buttonTextStyle}>Get Started</p>
             </button>
           </Link>
-        </motion.div>
+        </div>
       </section>
     </section>
   );
