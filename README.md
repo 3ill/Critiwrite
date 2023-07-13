@@ -19,7 +19,7 @@ CritiWrite aims to empower individuals in maximizing their writing abilities. Ou
 ### Clone our repo ⤵
 
 ```cli
-git clone https://github.com/boymeetsblockchain/criticwrite.git
+git clone https://github.com/3ill/Critiwrite.git
 ```
 
 ### Install Dependencies ⤵
